@@ -33,3 +33,23 @@
 /config/master.key
 
 config/initializers/devise.rb
+
+/config/database.yml
+
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+/public/assets
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+.idea/
+.vscode/
+
+/bin
+
+/coverage
