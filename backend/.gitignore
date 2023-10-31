@@ -32,6 +32,4 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# /backend
-/backend/config/initializers/devise.rb
-
+config/initializers/devise.rb
