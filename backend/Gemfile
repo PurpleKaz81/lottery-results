@@ -19,8 +19,10 @@ gem 'importmap-rails'
 
 gem 'httpparty'
 
-gem "sidekiq", "< 7"
-gem "sidekiq-failures", "~> 1.0"
+gem 'sidekiq'
+
+# gem 'sidekiq', "< 7"
+# gem "sidekiq-failures", "~> 1.0"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
