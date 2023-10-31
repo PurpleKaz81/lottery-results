@@ -3,7 +3,7 @@
 require 'httparty'
 
 class LotteryApiService
-  BASE_URL = 'https://loteriascaixa-api.herokuapp.com/'
+  BASE_URL = 'https://loteriascaixa-api.herokuapp.com'
 
   def self.fetch_all_lotteries
     response = HTTParty.get("#{BASE_URL}/api")
