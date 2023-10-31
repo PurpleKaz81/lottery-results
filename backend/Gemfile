@@ -19,6 +19,8 @@ gem 'importmap-rails'
 
 gem 'httpparty'
 
+gem 'sidekiq'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
