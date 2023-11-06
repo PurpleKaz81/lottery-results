@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe LotteryApiService do
@@ -39,6 +41,37 @@ RSpec.describe LotteryApiService do
 
       result = described_class.fetch_all_lotteries
 
+      expect(result).to eq([])
+    end
+  end
+
+  describe '.fetch_lottery_results' do
+    let(:lottery_name) { 'megasena' }
+    let(:api_response) do
+      JSON.pretty_generate({
+                             'loteria' => lottery_name,
+                             'concurso' => 2620,
+                             'data' => '12/08/2023'
+                           })
+    end
+
+    before do
+      stub_request(:get, "#{LotteryApiService::BASE_URL}/api/#{lottery_name}/latest")
+        .to_return(body: api_response)
+    end
+
+    it 'fetches the latest results for a specific lottery' do
+      result = described_class.fetch_lottery_results(lottery_name)
+      expect(result['loteria']).to eq(lottery_name)
+      expect(result['concurso']).to eq(2620)
+      expect(result['data']).to eq('12/08/2023')
+    end
+
+    it 'handles HTTP errors gracefully' do
+      stub_request(:get, "#{LotteryApiService::BASE_URL}/api/#{lottery_name}/latest")
+        .to_return(status: 500)
+
+      result = described_class.fetch_lottery_results(lottery_name)
       expect(result).to eq([])
     end
   end

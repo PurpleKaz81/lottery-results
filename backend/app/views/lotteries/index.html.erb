@@ -1,11 +1,11 @@
-<h2>Fetching Lottery Data</h2>
-<p>Check the server logs for the job output.</p>
+<h2>Fetching All Lottery Data</h2>
+<p>Check the server logs for the job output</p>
 
 <h2>Different Lotteries</h2>
 <ul>
   <% @lottery_names.each do |lottery_name| %>
     <li>
-      <%= link_to lottery_name.titleize, root_path, style: "text-decoration: none;" %>
+      <%= link_to lottery_name.titleize, lottery_path(lottery_name), style: "text-decoration: none;" %>
     </li>
   <% end %>
 </ul>

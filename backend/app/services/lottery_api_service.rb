@@ -17,7 +17,19 @@ class LotteryApiService
     []
   end
 
-  #* helper methods
+  def self.fetch_lottery_results(lottery_name)
+    response = HTTParty.get("#{BASE_URL}/api/#{lottery_name}/latest")
+    output_response_details(response)
+    parse_response(response)
+  rescue HTTParty::Error => e
+    puts "HTTParty error occurred: #{e.message}"
+    []
+  rescue StandardError => e
+    puts "An error occurred: #{e.message}"
+    []
+  end
+
+  # * helper methods
 
   def self.output_response_details(response)
     puts response.body, response.code, response.message, response.headers.inspect

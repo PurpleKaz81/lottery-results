@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class FakeJobTest < ActiveJob::TestCase
+class FetchLotteryResultsJobTest < ActiveJob::TestCase
   # test "the truth" do
   #   assert true
   # end
