@@ -21,6 +21,8 @@ gem 'httpparty'
 
 gem 'sidekiq'
 
+gem 'redis'
+
 # gem 'sidekiq', "< 7"
 # gem "sidekiq-failures", "~> 1.0"
 

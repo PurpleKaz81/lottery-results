@@ -2,5 +2,5 @@
 
 class Result < ApplicationRecord
   belongs_to :lottery
-  has_one :prize_breakdown
+  has_one :prize_breakdow
 end
