@@ -2,6 +2,7 @@
 
 require 'httparty'
 
+# LotteryApiService is a service class that fetches lottery data from an external API.
 class LotteryApiService
   BASE_URL = 'https://loteriascaixa-api.herokuapp.com'
 

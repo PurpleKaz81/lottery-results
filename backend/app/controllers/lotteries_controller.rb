@@ -1,6 +1,20 @@
 # frozen_string_literal: true
 
+# LotteriesController handles the actions related to Lotteries.
 class LotteriesController < ApplicationController
+  LOTTERY_NAMES = {
+    'maismilionaria' => 'Mais Milionária',
+    'megasena' => 'Mega Sena',
+    'lotofacil' => 'Loto Fácil',
+    'quina' => 'Quina',
+    'lotomania' => 'Loto Mania',
+    'timemania' => 'Time Mania',
+    'duplasena' => 'Dupla Sena',
+    'federal' => 'Federal',
+    'diadesorte' => 'Dia de Sorte',
+    'supersete' => 'Super Sete'
+  }.freeze
+
   def index
     lottery_names
   end
@@ -19,18 +33,6 @@ class LotteriesController < ApplicationController
   end
 
   def alter_name(lottery)
-    lottery_names = {
-      'maismilionaria' => 'Mais Milionária',
-      'megasena' => 'Mega Sena',
-      'lotofacil' => 'Loto Fácil',
-      'quina' => 'Quina',
-      'lotomania' => 'Loto Mania',
-      'timemania' => 'Time Mania',
-      'duplasena' => 'Dupla Sena',
-      'federal' => 'Federal',
-      'diadesorte' => 'Dia de Sorte',
-      'supersete' => 'Super Sete'
-    }
-    lottery_names[lottery]
+    LOTTERY_NAMES[lottery]
   end
 end

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# FetchLotteryDataJob is a background job that fetches and stores lottery data.
 class FetchLotteryDataJob < ApplicationJob
   queue_as :default
 

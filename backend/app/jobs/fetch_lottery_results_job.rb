@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# FetchLotteryResultsJob is a background job that fetches and stores lottery results.
 class FetchLotteryResultsJob < ApplicationJob
   queue_as :default
 
