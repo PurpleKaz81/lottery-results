@@ -32,7 +32,7 @@ class LotteryApiService
   # * helper methods
 
   def self.output_response_details(response)
-    puts response.body, response.code, response.message, response.headers.inspect
+    puts JSON.pretty_generate(JSON.parse(response.body)), response.code, response.message, response.headers.inspect
   end
 
   def self.parse_response(response)

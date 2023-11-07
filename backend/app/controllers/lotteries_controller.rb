@@ -2,9 +2,6 @@
 
 class LotteriesController < ApplicationController
   def index
-    FetchLotteryDataJob.perform_later
-    FetchLotteryResultsJob.perform_later
-
     lottery_names
   end
 

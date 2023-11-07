@@ -18,10 +18,14 @@ class FetchLotteryResultsJob < ApplicationJob
   private
 
   def store_results(lottery, results)
-    lottery.results.create!(
+    lottery.results.create(
       contest: results['concurso'],
       date: results['data'],
-      numbers: results['resultado']
+      numbers: results['dezenas']
     )
+
+    return if result.peristed?
+
+    Rails.logger.warn "Failed to store results for #{lottery.name}"
   end
 end
