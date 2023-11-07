@@ -23,6 +23,12 @@ gem 'sidekiq'
 
 gem 'redis'
 
+gem 'webpacker'
+
+gem 'cssbundling-rails'
+
+gem 'sprockets-rails'
+
 # gem 'sidekiq', "< 7"
 # gem "sidekiq-failures", "~> 1.0"
 
