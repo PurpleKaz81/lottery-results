@@ -16,9 +16,7 @@ class FetchLotteryDataJob < ApplicationJob
     lottery = Lottery.find_by(name: lottery_name)
     new_attributes = map_results_to_lottery_attributes(results)
 
-    if lottery.attributes != new_attributes
-      lottery.update!(new_attributes)
-    end
+    lottery.update!(new_attributes) if lottery.attributes != new_attributes
 
     lottery.fetch_data_job_finished!
 
