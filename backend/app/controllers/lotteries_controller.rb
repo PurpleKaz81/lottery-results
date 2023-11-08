@@ -16,6 +16,7 @@ class LotteriesController < ApplicationController
   }.freeze
 
   def index
+    Rails.logger.info "\n ========== User navigated to lotteries index page ========== \n"
     lottery_names
   end
 
@@ -23,7 +24,13 @@ class LotteriesController < ApplicationController
     @lottery_name = params[:id]
     @lottery = Lottery.find_by(name: @lottery_name)
     @display_name = alter_name(@lottery_name)
-    lottery_names
+
+    Rails.logger.info "\n========== About to enqueue FetchLotteryDataJob for #{@lottery_name} ==========\n"
+    @lottery.fetch_data_job_enqueued!
+    FetchLotteryDataJob.perform_later(@lottery_name)
+    Rails.logger.info "\n========== Enqueued FetchLotteryDataJob for #{@lottery_name} ==========\n"
+
+    Rails.logger.info "\n ========== User navigated to lotteries show page for #{@lottery_name} ========== \n"
   end
 
   private

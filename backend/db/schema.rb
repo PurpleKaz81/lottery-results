@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_231_031_201_207) do
+ActiveRecord::Schema[7.1].define(version: 20_231_107_214_731) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.1].define(version: 20_231_031_201_207) do
     t.integer 'draw_number'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.boolean 'fetch_data_job_enqueued'
   end
 
   create_table 'prize_breakdowns', force: :cascade do |t|

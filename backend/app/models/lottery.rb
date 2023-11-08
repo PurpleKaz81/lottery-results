@@ -4,13 +4,11 @@
 class Lottery < ApplicationRecord
   has_many :results
 
-  after_save :enqueue_fetch_lottery_data_job
+  def fetch_data_job_enqueued!
+    update_column(:fetch_data_job_enqueued, true)
+  end
 
-  private
-
-  def enqueue_fetch_lottery_data_job
-    Rails.logger.info "About to enqueue FetchLotteryDataJob for #{name}"
-    FetchLotteryDataJob.perform_later(name)
-    Rails.logger.info "Enqueued FetchLotteryDataJob for #{name}"
+  def fetch_data_job_finished!
+    update_column(:fetch_data_job_enqueued, false)
   end
 end
